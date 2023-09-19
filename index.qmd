@@ -1,0 +1,466 @@
+---
+title: "A Fully Decentralized Homomorphic "
+subtitle: Federated Learning Framework
+author:
+    - name: Anway Bose
+      orcid: 0000-0002-7145-6203
+      email: anway.bose@temple.edu
+      affiliations: Temple University
+    - name: Li Bai
+      orcid: 0000-0002-6036-5947
+      email: lbai@temple.edu
+      affiliations: Temple University
+
+date: "2023-09-25"
+date-format: long
+format:
+  clean-revealjs:
+    theme: test.scss
+    logo: images/temple.png
+#    css: logo.css
+    chalkboard: true
+    slide-number: true
+    footer: Computer Fusion Laboratory
+    preview-links: auto
+    pointer:
+      color: "#e7298a"
+      pointerSize: 24
+revealjs-plugins:
+  - pointer
+filters: 
+  - reveal-auto-agenda
+auto-agenda:
+
+---
+
+# Motivation
+
+## Motivation
+
+::: {.callout-note title="Motivation"}
+
+-   Tremendous success of LLMs in the recent past and the introduction of Metaverse has given the research community immense hope to revisit collaborative AI
+
+:::
+
+## Motivation
+
+::: {.callout-note title="Motivation"}
+
+-   Tremendous success of LLMs in the recent past and the introduction of Metaverse has given the research community immense hope to revisit collaborative AI
+
+-   The sharing of data between two organizations is often hindered by high costs, regulations, and security concerns
+:::
+
+## Motivation
+
+::: {.callout-note title="Motivation"}
+
+-   Tremendous success of LLMs in the recent past and the introduction of Metaverse has given the research community immense hope to revisit collaborative AI
+
+-   The sharing of data between two organizations is often hindered by high costs, regulations, and security concerns
+
+-   Nevertheless, the accumulation of insights gleaned from such data is crucial for the development of a reliable Machine Learning framework.
+
+:::
+
+
+# Federated Learning
+
+## IBM WSL Federated Learning
+
+![](./images/IBM_homo_fed.jpeg){fig-align="center"}
+
+
+## Classification of Federated Learning
+
+
+
+![](./images/Classification-of-federated-learning.png){fig-align="center"}
+
+
+$$\boldsymbol w_{update} = \frac{1}{n}\sum_{i=1}^{n} \boldsymbol w^{(i)}$$
+
+
+# Homomorphic Encryption
+
+## Homomorphic Encryption
+::: {.callout-note title="Homomorphic Encryption"}
+
+-   In mathematical terms, an encryption algorithm $\boldsymbol{En}$ is considered homomorphic with respect to a specific operation $\star$, if $\boldsymbol{En}$ satisfies the criteria
+
+$$\boldsymbol{En}(m_1) \star \boldsymbol{En}(m_2) = \boldsymbol{En}(m_1 \star m_2) \ \forall m_1, m_2 \in M$$
+
+:::
+
+## Homomorphic Encryption
+::: {.callout-note title="Homomorphic Encryption"}
+
+-   In mathematical terms, an encryption algorithm $\boldsymbol{En}$ is considered homomorphic with respect to a specific operation $\star$, if $\boldsymbol{En}$ satisfies the criteria
+
+$$\boldsymbol{En}(m_1) \star \boldsymbol{En}(m_2) = \boldsymbol{En}(m_1 \star m_2) \ \forall m_1, m_2 \in M$$
+
+:::
+
+::: {.callout-note title="Example with multiplicty of homomorphism in RSA"}
+
+$$\begin{split}
+       \boldsymbol{En}(m_1) \cdot \boldsymbol{En}(m_2) & = ((m_1)^e \mod n)\cdot((m_2)^e \mod n) \\
+       & = (m_1 \cdot m_2)^e \mod n \\
+       & = \boldsymbol{En}(m_1 \cdot m_2).
+    \end{split}$$
+
+:::
+
+
+# Problem Formulation and Proposed Architecture
+
+## Problem Statement
+
+::: {.callout-note title="Homomorphic Encryption"}
+
+-   our goal to come up with a homomorphic operation $\boldsymbol \phi$ on each encrypted local models, such that the server operates on encrypted local models $\boldsymbol{En}(\boldsymbol w^{(i)})$ as described in
+
+$$update = {\boldsymbol \phi \atop i \in [1,n]} \left( \boldsymbol{En}(\boldsymbol w^{(i)}) \right)$$
+
+:::
+
+## Problem Statement
+
+::: {.callout-note title="Homomorphic Encryption"}
+
+-   our goal to come up with a homomorphic operation $\boldsymbol \phi$ on each encrypted local models, such that the server operates on encrypted local models $\boldsymbol{En}(\boldsymbol w^{(i)})$ as described in
+
+$$update = {\boldsymbol \phi \atop i \in [1,n]} \left( \boldsymbol{En}(\boldsymbol w^{(i)}) \right)$$
+
+-   But, the clients need to get back FedAvg update after decrypting the server update as explained in
+
+$$\boldsymbol{De}(update) = \boldsymbol w_{update} = \frac{1}{n}\sum_{i=1}^{n} \boldsymbol w^{(i)}$$
+
+:::
+
+
+
+## Definitions and Properties
+
+::: {.callout-note title="Definition 1:"}
+We define the following indices function for any scalar $I$ and any vector $\boldsymbol A = [a_1, a_2, ...,a_n]^T$ in
+
+$$I^{\boldsymbol A} = 
+        \begin{bmatrix}
+        I^{a_1}& 0 & \cdot & 0 \\
+        0 & I^{a_2} & \cdot & 0 \\
+        0 & \cdot & \cdot & 0 \\
+        0 & \cdot & 0 & I^{a_n}
+        \end{bmatrix}$$
+
+:::
+
+## Definitions and Properties
+
+::: {.callout-note title="Definition 1:"}
+We define the following indices function for any scalar $I$ and any vector $\boldsymbol A = [a_1, a_2, ...,a_n]^T$ in
+
+$$I^{\boldsymbol A} = 
+        \begin{bmatrix}
+        I^{a_1}& 0 & \cdot & 0 \\
+        0 & I^{a_2} & \cdot & 0 \\
+        0 & \cdot & \cdot & 0 \\
+        0 & \cdot & 0 & I^{a_n}
+        \end{bmatrix}$$
+
+:::
+
+::: {.callout-note title="Propoerty 1:"}
+
+If $I^{\boldsymbol A}$ and $I^{\boldsymbol B}$ is defined using Definition 1, we can show that
+
+$$I^{\boldsymbol A} \cdot I^{\boldsymbol B} = I^{\boldsymbol A + \boldsymbol B}$$
+:::
+
+
+## Definitions and Properties
+
+::: {.callout-note title="Definition 2:"}
+With $\boldsymbol M \in \mathcal{R}^{n \times n}$ being any square matrix of the form $\boldsymbol M = 
+    \begin{bmatrix}
+        m_{11}& m_{12} & \cdot & m_{1n} \\
+        m_{21} & m_{22} & \cdot & m_{2n} \\
+        \cdot & \cdot & m_{ii} & \cdot \\
+        m_{n1} & \cdot & \cdot & m_{nn}
+    \end{bmatrix}$
+
+we define the new function $LOG(\boldsymbol M)$ as
+
+$$LOG_{b}(\boldsymbol M) = \log_b (diag(\boldsymbol M))
+        = \begin{bmatrix}
+            \log_b (m_{11}) \\
+            \log_b (m_{22}) \\
+            \cdot \\
+            \log_b (m_{ii}) \\
+            \cdot \\
+            \log_b (m_{nn})
+        \end{bmatrix}$$
+
+:::
+
+## Definitions and Properties
+
+::: {.callout-note title="Definition 2:"}
+$$LOG_{b}(\boldsymbol M) = \log_b (diag(\boldsymbol M))
+        = \begin{bmatrix}
+            \log_b (m_{11}) \\
+            \log_b (m_{22}) \\
+            \cdot \\
+            \log_b (m_{ii}) \\
+            \cdot \\
+            \log_b (m_{nn})
+        \end{bmatrix}$$
+
+:::
+
+::: {.callout-note title="Propoerty 2:"}
+
+With the definitions from Definition 1 and Definition 2 and for any vector $\boldsymbol A = [a_1, a_2, ...,a_n]^T$, we can show
+
+$$LOG_b (b^{\boldsymbol A}) = \boldsymbol A$$
+:::
+
+
+## homoFedAvg Technique
+
+::: {.callout-note title="Model Encryption"}
+
+$$\boldsymbol{En}(\boldsymbol w^{(i)},\ gk) = gk^{\boldsymbol w^{(i)}}$$
+
+:::
+
+## homoFedAvg Technique
+
+::: {.callout-note title="Model Encryption"}
+
+$$\boldsymbol{En}(\boldsymbol w^{(i)},\ gk) = gk^{\boldsymbol w^{(i)}}$$
+
+:::
+
+::: {.callout-note title="Server Update"}
+
+$$\begin{split}
+        update &= \prod_i^n (gk^{\boldsymbol w^{(i)}})^{\frac{1}{n}} \\
+        &= \prod_i^n (gk^{\frac{\boldsymbol w^{(i)}}{n}}) \\
+        &= gk^{\frac{1}{n}\sum_{i=1}^n \boldsymbol w^{(i)}} \\
+        &= \boldsymbol{En}(\boldsymbol w_{update}, gk),
+    \end{split}$$
+
+:::
+
+
+## homoFedAvg Technique
+
+::: {.callout-note title="Model Encryption"}
+
+$$\boldsymbol{En}(\boldsymbol w^{(i)},\ gk) = gk^{\boldsymbol w^{(i)}}$$
+
+:::
+
+::: {.callout-note title="Server Update"}
+
+$$ update = \boldsymbol{En}(\boldsymbol w_{update}, gk) $$
+:::
+
+::: {.callout-note title="Client Decryption"}
+$$\begin{split}
+        \boldsymbol{De}(update) &= LOG_{gk} (\boldsymbol{En}(\boldsymbol w_{update}, gk) )\\
+        &= LOG_{gk} (gk^{\frac{1}{n}\sum_i^n \boldsymbol w^{(i)}}) \\
+        &= \frac{1}{n}\sum_i^n \boldsymbol w^{(i)} = \boldsymbol w_{update},     
+    \end{split}$$
+:::
+
+## homoFedAvg Technique
+
+![](./images/hom_fedavg.png){fig-align="center"}
+
+
+## Verifiable Proof
+
+### Client Side Initial Calculation
+
+Each client $i$ compute some additional information $$s_i = [gk^{\boldsymbol w^{(i)}}, A_i, B_i, L_i, Q_i, \Omega_i=1]$$
+
+\begin{equation}
+        HF(\boldsymbol w^{(i)}) = (A_i,B_i) = (g^{HF_{\delta, p}(\boldsymbol w^{(i)})},h^{HF_{\delta, p}(\boldsymbol w^{(i)})}),
+        \label{eq:hf_client}
+\end{equation}
+    
+\begin{equation}
+    \begin{split}
+        PF_{K_1}(i) &= (\gamma_i, \nu_i), \\
+        PF_{K_2}(\tau) &= (\gamma, \nu),
+    \end{split}
+    \label{eq:pf_i}
+\end{equation}
+
+## Verifiable Proof
+
+### Client Side Initial Calculation
+   
+\begin{equation}
+    \begin{split}
+        PF_{K}(i,\tau) &= (E_i, F_i) \\
+         &= (g^{\gamma_1 \gamma+ \nu_i \nu}, h^{\gamma_1 \gamma+ \nu_i \nu}),
+    \end{split}
+    \label{eq:pf_k}
+\end{equation}
+
+
+\begin{equation}
+    \begin{split}
+        L_i &= (E_i, A_i^{-1})^{\frac{1}{d}} \\
+         &= (g^{\gamma_1 \gamma+ \nu_i \nu - HF_{\delta, p}(\boldsymbol w^{(i)})}), \ \text{and}
+    \end{split}
+    \label{eq:l_i}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        Q_i &= (F_i, B_i^{-1})^{\frac{1}{d}} \\
+         &= (h^{\gamma_1 \gamma+ \nu_i \nu - HF_{\delta, p}(\boldsymbol w^{(i)})}),
+    \end{split}
+    \label{eq:q_i}
+\end{equation}
+
+
+## Verifiable Proof
+
+### Server Side Update Calculation
+Server also calculates few more information $s = [gk^{\boldsymbol w_{update}}, A, B, L, Q, \Omega]$
+
+ \begin{equation}
+    \begin{split}
+        A &= \prod_{i=1}^n A_i^{\frac{1}{n}}; \quad \quad 
+        B = \prod_{i=1}^n B_i^{\frac{1}{n}},  \\
+        L &= \prod_{i=1}^n L_i; \quad \quad 
+        Q = \prod_{i=1}^n Q_i,  \\
+        \Omega &= \prod_{i=1}^n \Omega        
+    \end{split}
+    \label{eq:server_sigma}
+ \end{equation}
+
+
+## Verifiable Proof
+
+### Verification by Client
+
+Each client knows $PF_{K_1}$ and $PF_{K_2}$ and further calculates 
+$\phi = \sum_i^n \gamma_i \gamma + \nu_i \nu \ \text{and} \ \Phi = e(g,h)^\phi.$
+
+\begin{equation}
+        \begin{split}
+            (A,B) &= \left(\prod_{i=1}^n A_i, \prod_{i=1}^n B_i \right) \\
+            &= \left(g^{{\frac{1}{n}}\sum_i HF_{\delta, p}(\boldsymbol w^{(i)})},h^{{\frac{1}{n}}\sum_i HF_{\delta, p}(\boldsymbol w^{(i)})}\right) \\
+            &= \left(g^{HF_{\delta, p}({\frac{1}{n}}\sum_i \boldsymbol w^{(i)})},h^{HF_{\delta, p}({\frac{1}{n}}\sum_i\boldsymbol w^{(i)})}\right) \\
+            &= \left(A',B'\right) 
+        \end{split}
+        \label{eq:verify_ab}
+    \end{equation}
+
+## Verifiable Proof
+
+### Verification by Client
+
+\begin{equation}
+        \begin{split}
+            e(A,h) &= e(g^{HF_{\delta, p}(\sigma)},h) \\
+            &= e(g,h^{HF_{\delta, p}(\sigma)}) \\
+            &= e(A,B)
+        \end{split}
+        \label{eq:e_ab}
+\end{equation}
+
+\begin{equation}
+        \begin{split}
+            e(L,h) &= e(g^{\sum_i^n \gamma_i \gamma + \nu_i \nu - HF_{\delta, p}(\boldsymbol w^{(i)})},h)^\frac{1}{d} \\
+            &= e(g,h^{\sum_i^n \gamma_i \gamma + \nu_i \nu - HF_{\delta, p}(\boldsymbol w^{(i)})})^\frac{1}{d} \\
+            &= e(g,Q)
+        \end{split}
+        \label{eq:e_gq}
+\end{equation}
+
+## Verifiable Proof
+
+### Verification by Client
+
+\begin{equation}
+        \begin{split}
+            e(A,h) \cdot e(L,h)^d &= e(g^{HF_{\delta, p}(\sigma)},h) 
+            \\
+            & \quad \cdot e(g^{\sum_i^n \gamma_i \gamma + \nu_i \nu - HF_{\delta, p}(\boldsymbol w^{(i)})},h)^\frac{1}{d} \\
+            &= e(g,h)^{\sum_i^n \gamma_i \gamma + \nu_i \nu} \\
+            &= \Phi
+        \end{split}
+        \label{eq:phi}
+\end{equation}
+
+
+# Convergence Ananlysis
+
+## Convergence Ananlysis
+
+::: {.callout-note title="Convergence Ananlysis"}
+
+  - We assume that the loss function $f_m$ is $\mu$-strongly convex for $\mu \geq 0$ and L-smooth
+  - The convergence rate to achieve $\epsilon$-accuracy is
+$$\mathcal{O} \left( \frac{L^2 \lVert x_0 -x_* \rVert^2}{n \epsilon^2} - \frac{\sigma^4}{L^2 n \epsilon^2} \right) $$
+
+:::
+
+# Results
+
+## Experimental Results
+
+::: {.callout-note title="Microgrid Table"}
+| **dataset** | **ML Algorithm** | **homoFedAvg training time** | **Training Loss** | **Central training time**  | **Central Training Loss** |
+|:----:|:----:|:----:|:----:|:----:|:----:|
+|   **MNIST**   |   logistic regression   |   $5 \times 10^3$ sec   |   $0.39$   | $6 \times 10^3$ sec | $0.35$ |
+|   **CIFAR 10**  |   CNN   |   $2 \times 10^2$ sec    |   $0.22$   | $3 \times 10^2$ sec | $0.23$ |
+|   **CIFAR 10**   |   AlexNet   |   $3 \times 10^3$ sec   |   $0.12$   | $4 \times 10^3$ sec | $0.14$ |
+:::
+
+
+# Conclusion
+
+## Conclusion & Future Work {.smaller}
+
+<br>
+
+::: {.callout-note title="Conclusion"}
+-   presented a verifiable homomorphic federated learning scheme *homoFedAvg*, without any loss of convergence performance compared to *FedAvg* technique.
+
+-   Using TGDH as the group key generator, our system is robust to the joining and leaving of clients during the training process. On each round of updates, TGDH recalculates the group key thus preventing clients left from accessing the new server updates
+
+-   we provide a proof for verification, where each client verifies if the server update has been spoofed and accordingly accepts the update, making the process more robust to attacks during training
+
+-   in a bigger network, at each round randomly different nodes can be used as servers to decrease the vulnerability of the model further
+:::
+
+::: {.callout-note title="Future Work"}
+-   By incorporating slight modifications to the feature vector, this approach can be extended to facilitate Homomorphic Vertical Federated Learning and Homomorphic Federated Transfer Learning
+:::
+
+
+
+## THANK YOU
+
+::: columns
+
+::: {.column width="49%"}
+![Anway Bose (anway.bose@temple.edu)](./images/abose1.jpg){width=150% fig-align="center"}
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="49%"}
+![Dr. Li Bai (li.bai@temple.edu)](./images/li_bai.png){width=150% fig-align="right"}
+:::
+:::
