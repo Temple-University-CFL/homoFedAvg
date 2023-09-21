@@ -14,7 +14,7 @@
   <meta name="author" content="Anway Bose">
   <meta name="author" content="Li Bai">
   <meta name="dcterms.date" content="2023-09-25">
-  <title>A Fully Decentralized Homomorphic</title>
+  <title>MASS 2023</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -331,8 +331,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">A Fully Decentralized Homomorphic</h1>
-  <p class="subtitle">Federated Learning Framework</p>
+  <h1 class="title">MASS 2023</h1>
+  <p class="subtitle">A Fully Decentralized Homomorphic Federated Learning Framework</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -364,25 +364,22 @@ Li Bai <a href="https://orcid.org/0000-0002-6036-5947" class="quarto-title-autho
 <section>
 <section id="motivation" class="title-slide slide level1 agenda-slide center">
 <h1>Motivation</h1>
+<div class="agenda-heading">
+<p>Contents:</p>
+</div>
 <div class="agenda">
 <ul>
 <li><div class="agenda-active">
 <p>Motivation</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
-<p>Federated Learning</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Homomorphic Encryption</p>
+<p>Background</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
 <p>Problem Formulation and Proposed Architecture</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
-<p>Convergence Ananlysis</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Results</p>
+<p>Results and Ananlysis</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
 <p>Conclusion</p>
@@ -407,6 +404,34 @@ Li Bai <a href="https://orcid.org/0000-0002-6036-5947" class="quarto-title-autho
 </div>
 </div>
 </div>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="./images/LLM.jpg" style="width:150.0%"></p>
+<figcaption>LLM</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:0.5%;">
+
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./images/metaverse.jpeg" style="width:150.0%"></p>
+<figcaption>Metaverse</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:0.5%;">
+
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="./images/iot.jpg" style="width:150.0%"></p>
+<figcaption>IOT</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="motivation-2" class="slide level2">
 <h2>Motivation</h2>
@@ -426,7 +451,8 @@ Li Bai <a href="https://orcid.org/0000-0002-6036-5947" class="quarto-title-autho
 </div>
 </div>
 </div>
-</section>
+
+<img data-src="./images/iot-security.png" style="width:200.0%" class="r-stretch quarto-figure-center"></section>
 <section id="motivation-3" class="slide level2">
 <h2>Motivation</h2>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -446,29 +472,27 @@ Li Bai <a href="https://orcid.org/0000-0002-6036-5947" class="quarto-title-autho
 </div>
 </div>
 </div>
-</section></section>
+
+<img data-src="./images/clara_fed.png" style="width:200.0%" class="r-stretch quarto-figure-left"><p class="caption">NVIDIA CLARA Federated Training</p></section></section>
 <section>
-<section id="federated-learning" class="title-slide slide level1 agenda-slide center">
-<h1>Federated Learning</h1>
+<section id="background" class="title-slide slide level1 agenda-slide center">
+<h1>Background</h1>
+<div class="agenda-heading">
+<p>Contents:</p>
+</div>
 <div class="agenda">
 <ul>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>Motivation</p>
 </div></li>
 <li><div class="agenda-active">
-<p>Federated Learning</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Homomorphic Encryption</p>
+<p>Background</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
 <p>Problem Formulation and Proposed Architecture</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
-<p>Convergence Ananlysis</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Results</p>
+<p>Results and Ananlysis</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
 <p>Conclusion</p>
@@ -476,45 +500,35 @@ Li Bai <a href="https://orcid.org/0000-0002-6036-5947" class="quarto-title-autho
 </ul>
 </div>
 </section>
-<section id="ibm-wsl-federated-learning" class="slide level2">
-<h2>IBM WSL Federated Learning</h2>
+<section id="federated-learning" class="slide level2">
+<h2>Federated Learning</h2>
+<h3 id="ibm-wsl-federated-learning">IBM WSL Federated Learning</h3>
+<div class="columns">
+<div class="column" style="width:49%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="./images/IBM_homo_fed.jpeg" style="width:200.0%"></p>
+<figcaption>Secured Federated Learning</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:2%;">
 
-<img data-src="./images/IBM_homo_fed.jpeg" class="r-stretch quarto-figure-center"></section>
+</div><div class="column" style="width:49%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="./images/ring_fed.png" style="width:200.0%"></p>
+<figcaption>Ring-Architecture</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="classification-of-federated-learning" class="slide level2">
 <h2>Classification of Federated Learning</h2>
 
 <img data-src="./images/Classification-of-federated-learning.png" class="r-stretch quarto-figure-center"><p><span class="math display">\[\boldsymbol w_{update} = \frac{1}{n}\sum_{i=1}^{n} \boldsymbol w^{(i)}\]</span></p>
-</section></section>
-<section>
-<section id="homomorphic-encryption" class="title-slide slide level1 agenda-slide center">
-<h1>Homomorphic Encryption</h1>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Motivation</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Federated Learning</p>
-</div></li>
-<li><div class="agenda-active">
-<p>Homomorphic Encryption</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Problem Formulation and Proposed Architecture</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Convergence Ananlysis</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Results</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Conclusion</p>
-</div></li>
-</ul>
-</div>
 </section>
-<section id="homomorphic-encryption-1" class="slide level2">
+<section id="homomorphic-encryption" class="slide level2">
 <h2>Homomorphic Encryption</h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -533,7 +547,7 @@ Li Bai <a href="https://orcid.org/0000-0002-6036-5947" class="quarto-title-autho
 </div>
 </div>
 </section>
-<section id="homomorphic-encryption-2" class="slide level2">
+<section id="homomorphic-encryption-1" class="slide level2">
 <h2>Homomorphic Encryption</h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -572,25 +586,22 @@ Li Bai <a href="https://orcid.org/0000-0002-6036-5947" class="quarto-title-autho
 <section>
 <section id="problem-formulation-and-proposed-architecture" class="title-slide slide level1 agenda-slide center">
 <h1>Problem Formulation and Proposed Architecture</h1>
+<div class="agenda-heading">
+<p>Contents:</p>
+</div>
 <div class="agenda">
 <ul>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>Motivation</p>
 </div></li>
 <li><div class="agenda-inactive agenda-pre-active">
-<p>Federated Learning</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Homomorphic Encryption</p>
+<p>Background</p>
 </div></li>
 <li><div class="agenda-active">
 <p>Problem Formulation and Proposed Architecture</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
-<p>Convergence Ananlysis</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Results</p>
+<p>Results and Ananlysis</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
 <p>Conclusion</p>
@@ -766,20 +777,8 @@ Li Bai <a href="https://orcid.org/0000-0002-6036-5947" class="quarto-title-autho
 </section>
 <section id="homofedavg-technique" class="slide level2">
 <h2>homoFedAvg Technique</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Model Encryption</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math display">\[\boldsymbol{En}(\boldsymbol w^{(i)},\ gk) = gk^{\boldsymbol w^{(i)}}\]</span></p>
-</div>
-</div>
-</div>
-</section>
+
+<img data-src="./images/client.png" class="r-stretch quarto-figure-center"></section>
 <section id="homofedavg-technique-1" class="slide level2">
 <h2>homoFedAvg Technique</h2>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -795,6 +794,10 @@ Li Bai <a href="https://orcid.org/0000-0002-6036-5947" class="quarto-title-autho
 </div>
 </div>
 </div>
+
+<img data-src="./images/encrypt.png" class="r-stretch quarto-figure-center"></section>
+<section id="homofedavg-technique-2" class="slide level2">
+<h2>homoFedAvg Technique</h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -805,43 +808,18 @@ Li Bai <a href="https://orcid.org/0000-0002-6036-5947" class="quarto-title-autho
 </div>
 <div class="callout-content">
 <p><span class="math display">\[\begin{split}
-        update &amp;= \prod_i^n (gk^{\boldsymbol w^{(i)}})^{\frac{1}{n}} \\
-        &amp;= \prod_i^n (gk^{\frac{\boldsymbol w^{(i)}}{n}}) \\
-        &amp;= gk^{\frac{1}{n}\sum_{i=1}^n \boldsymbol w^{(i)}} \\
-        &amp;= \boldsymbol{En}(\boldsymbol w_{update}, gk),
+        update &amp;= \prod_i^n (gk^{\boldsymbol w^{(i)}})^{\frac{1}{n}}
+        = \prod_i^n (gk^{\frac{\boldsymbol w^{(i)}}{n}})
+        = gk^{\frac{1}{n}\sum_{i=1}^n \boldsymbol w^{(i)}}
+        = \boldsymbol{En}(\boldsymbol w_{update}, gk),
     \end{split}\]</span></p>
 </div>
 </div>
 </div>
-</section>
-<section id="homofedavg-technique-2" class="slide level2">
+
+<img data-src="./images/server_update.png" class="r-stretch quarto-figure-center"></section>
+<section id="homofedavg-technique-3" class="slide level2">
 <h2>homoFedAvg Technique</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Model Encryption</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math display">\[\boldsymbol{En}(\boldsymbol w^{(i)},\ gk) = gk^{\boldsymbol w^{(i)}}\]</span></p>
-</div>
-</div>
-</div>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Server Update</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math display">\[ update = \boldsymbol{En}(\boldsymbol w_{update}, gk) \]</span></p>
-</div>
-</div>
-</div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -852,18 +830,210 @@ Li Bai <a href="https://orcid.org/0000-0002-6036-5947" class="quarto-title-autho
 </div>
 <div class="callout-content">
 <p><span class="math display">\[\begin{split}
-        \boldsymbol{De}(update) &amp;= LOG_{gk} (\boldsymbol{En}(\boldsymbol w_{update}, gk) )\\
-        &amp;= LOG_{gk} (gk^{\frac{1}{n}\sum_i^n \boldsymbol w^{(i)}}) \\
-        &amp;= \frac{1}{n}\sum_i^n \boldsymbol w^{(i)} = \boldsymbol w_{update},     
+        \boldsymbol{De}(update) &amp;= LOG_{gk} (\boldsymbol{En}(\boldsymbol w_{update}, gk) )
+        &amp;= LOG_{gk} (gk^{\frac{1}{n}\sum_i^n \boldsymbol w^{(i)}})
+        &amp;= \frac{1}{n}\sum_i^n \boldsymbol w^{(i)} = \boldsymbol w_{update}     
     \end{split}\]</span></p>
 </div>
 </div>
 </div>
-</section>
-<section id="homofedavg-technique-3" class="slide level2">
+
+<img data-src="./images/decrypt.png" class="r-stretch quarto-figure-center"></section>
+<section id="homofedavg-technique-4" class="slide level2">
 <h2>homoFedAvg Technique</h2>
 
-<img data-src="./images/hom_fedavg.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="./images/hom_fedavg.png" class="r-stretch quarto-figure-center"></section></section>
+<section>
+<section id="results-and-ananlysis" class="title-slide slide level1 agenda-slide center">
+<h1>Results and Ananlysis</h1>
+<div class="agenda-heading">
+<p>Contents:</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Motivation</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Background</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Problem Formulation and Proposed Architecture</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Results and Ananlysis</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Conclusion</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="convergence-ananlysis" class="slide level2">
+<h2>Convergence Ananlysis</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Convergence Ananlysis</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>We assume that the loss function <span class="math inline">\(f_m\)</span> is <span class="math inline">\(\mu\)</span>-strongly convex for <span class="math inline">\(\mu \geq 0\)</span> and L-smooth</li>
+<li>The convergence rate to achieve <span class="math inline">\(\epsilon\)</span>-accuracy is <span class="math display">\[\mathcal{O} \left( \frac{L^2 \lVert x_0 -x_* \rVert^2}{n \epsilon^2} - \frac{\sigma^4}{L^2 n \epsilon^2} \right) \]</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="experimental-results" class="slide level2">
+<h2>Experimental Results</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Microgrid Table</strong></p>
+</div>
+<div class="callout-content">
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>dataset</strong></th>
+<th style="text-align: center;"><strong>ML Algorithm</strong></th>
+<th style="text-align: center;"><strong>homoFedAvg training time</strong></th>
+<th style="text-align: center;"><strong>Training Loss</strong></th>
+<th style="text-align: center;"><strong>Central training time</strong></th>
+<th style="text-align: center;"><strong>Central Training Loss</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>MNIST</strong></td>
+<td style="text-align: center;">logistic regression</td>
+<td style="text-align: center;"><span class="math inline">\(5 \times 10^3\)</span> sec</td>
+<td style="text-align: center;"><span class="math inline">\(0.39\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6 \times 10^3\)</span> sec</td>
+<td style="text-align: center;"><span class="math inline">\(0.35\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>CIFAR 10</strong></td>
+<td style="text-align: center;">CNN</td>
+<td style="text-align: center;"><span class="math inline">\(2 \times 10^2\)</span> sec</td>
+<td style="text-align: center;"><span class="math inline">\(0.22\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3 \times 10^2\)</span> sec</td>
+<td style="text-align: center;"><span class="math inline">\(0.23\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>CIFAR 10</strong></td>
+<td style="text-align: center;">AlexNet</td>
+<td style="text-align: center;"><span class="math inline">\(3 \times 10^3\)</span> sec</td>
+<td style="text-align: center;"><span class="math inline">\(0.12\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4 \times 10^3\)</span> sec</td>
+<td style="text-align: center;"><span class="math inline">\(0.14\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="conclusion" class="title-slide slide level1 agenda-slide center">
+<h1>Conclusion</h1>
+<div class="agenda-heading">
+<p>Contents:</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Motivation</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Background</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Problem Formulation and Proposed Architecture</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Results and Ananlysis</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Conclusion</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="conclusion-future-work" class="slide level2 smaller">
+<h2>Conclusion &amp; Future Work</h2>
+<p><br></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Conclusion</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>presented a verifiable homomorphic federated learning scheme <em>homoFedAvg</em>, without any loss of convergence performance compared to <em>FedAvg</em> technique.</p></li>
+<li><p>Using TGDH as the group key generator, our system is robust to the joining and leaving of clients during the training process. On each round of updates, TGDH recalculates the group key thus preventing clients left from accessing the new server updates</p></li>
+<li><p>we provide a proof for verification, where each client verifies if the server update has been spoofed and accordingly accepts the update, making the process more robust to attacks during training</p></li>
+<li><p>in a bigger network, at each round randomly different nodes can be used as servers to decrease the vulnerability of the model further</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Future Work</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>By incorporating slight modifications to the feature vector, this approach can be extended to facilitate Homomorphic Vertical Federated Learning and Homomorphic Federated Transfer Learning</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="thank-you" class="slide level2">
+<h2>THANK YOU</h2>
+<div class="columns">
+<div class="column" style="width:49%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="./images/abose1.jpg" style="width:150.0%"></p>
+<figcaption>Anway Bose (anway.bose@temple.edu)</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:49%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="./images/li_bai.png" style="width:150.0%"></p>
+<figcaption>Dr.&nbsp;Li Bai (li.bai@temple.edu)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="verifiable-proof" class="slide level2">
 <h2>Verifiable Proof</h2>
 <h3 id="client-side-initial-calculation">Client Side Initial Calculation</h3>
@@ -967,234 +1137,8 @@ Li Bai <a href="https://orcid.org/0000-0002-6036-5947" class="quarto-title-autho
         \end{split}
         \label{eq:phi}
 \end{equation}\]</span></p>
-</section></section>
-<section>
-<section id="convergence-ananlysis" class="title-slide slide level1 agenda-slide center">
-<h1>Convergence Ananlysis</h1>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Motivation</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Federated Learning</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Homomorphic Encryption</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Problem Formulation and Proposed Architecture</p>
-</div></li>
-<li><div class="agenda-active">
-<p>Convergence Ananlysis</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Results</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Conclusion</p>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="convergence-ananlysis-1" class="slide level2">
-<h2>Convergence Ananlysis</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Convergence Ananlysis</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li>We assume that the loss function <span class="math inline">\(f_m\)</span> is <span class="math inline">\(\mu\)</span>-strongly convex for <span class="math inline">\(\mu \geq 0\)</span> and L-smooth</li>
-<li>The convergence rate to achieve <span class="math inline">\(\epsilon\)</span>-accuracy is <span class="math display">\[\mathcal{O} \left( \frac{L^2 \lVert x_0 -x_* \rVert^2}{n \epsilon^2} - \frac{\sigma^4}{L^2 n \epsilon^2} \right) \]</span></li>
-</ul>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="results" class="title-slide slide level1 agenda-slide center">
-<h1>Results</h1>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Motivation</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Federated Learning</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Homomorphic Encryption</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Problem Formulation and Proposed Architecture</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Convergence Ananlysis</p>
-</div></li>
-<li><div class="agenda-active">
-<p>Results</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Conclusion</p>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="experimental-results" class="slide level2">
-<h2>Experimental Results</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Microgrid Table</strong></p>
-</div>
-<div class="callout-content">
-<table style="width:100%;">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><strong>dataset</strong></th>
-<th style="text-align: center;"><strong>ML Algorithm</strong></th>
-<th style="text-align: center;"><strong>homoFedAvg training time</strong></th>
-<th style="text-align: center;"><strong>Training Loss</strong></th>
-<th style="text-align: center;"><strong>Central training time</strong></th>
-<th style="text-align: center;"><strong>Central Training Loss</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong>MNIST</strong></td>
-<td style="text-align: center;">logistic regression</td>
-<td style="text-align: center;"><span class="math inline">\(5 \times 10^3\)</span> sec</td>
-<td style="text-align: center;"><span class="math inline">\(0.39\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(6 \times 10^3\)</span> sec</td>
-<td style="text-align: center;"><span class="math inline">\(0.35\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>CIFAR 10</strong></td>
-<td style="text-align: center;">CNN</td>
-<td style="text-align: center;"><span class="math inline">\(2 \times 10^2\)</span> sec</td>
-<td style="text-align: center;"><span class="math inline">\(0.22\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(3 \times 10^2\)</span> sec</td>
-<td style="text-align: center;"><span class="math inline">\(0.23\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>CIFAR 10</strong></td>
-<td style="text-align: center;">AlexNet</td>
-<td style="text-align: center;"><span class="math inline">\(3 \times 10^3\)</span> sec</td>
-<td style="text-align: center;"><span class="math inline">\(0.12\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(4 \times 10^3\)</span> sec</td>
-<td style="text-align: center;"><span class="math inline">\(0.14\)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="conclusion" class="title-slide slide level1 agenda-slide center">
-<h1>Conclusion</h1>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Motivation</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Federated Learning</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Homomorphic Encryption</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Problem Formulation and Proposed Architecture</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Convergence Ananlysis</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Results</p>
-</div></li>
-<li><div class="agenda-active">
-<p>Conclusion</p>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="conclusion-future-work" class="slide level2 smaller">
-<h2>Conclusion &amp; Future Work</h2>
-<p><br></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Conclusion</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p>presented a verifiable homomorphic federated learning scheme <em>homoFedAvg</em>, without any loss of convergence performance compared to <em>FedAvg</em> technique.</p></li>
-<li><p>Using TGDH as the group key generator, our system is robust to the joining and leaving of clients during the training process. On each round of updates, TGDH recalculates the group key thus preventing clients left from accessing the new server updates</p></li>
-<li><p>we provide a proof for verification, where each client verifies if the server update has been spoofed and accordingly accepts the update, making the process more robust to attacks during training</p></li>
-<li><p>in a bigger network, at each round randomly different nodes can be used as servers to decrease the vulnerability of the model further</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Future Work</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li>By incorporating slight modifications to the feature vector, this approach can be extended to facilitate Homomorphic Vertical Federated Learning and Homomorphic Federated Transfer Learning</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="thank-you" class="slide level2">
-<h2>THANK YOU</h2>
-<div class="columns">
-<div class="column" style="width:49%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./images/abose1.jpg" style="width:150.0%"></p>
-<figcaption>Anway Bose (anway.bose@temple.edu)</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:2%;">
 
-</div><div class="column" style="width:49%;">
-<div class="quarto-figure quarto-figure-right">
-<figure>
-<p><img data-src="./images/li_bai.png" style="width:150.0%"></p>
-<figcaption>Dr.&nbsp;Li Bai (li.bai@temple.edu)</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p><img src="images/temple.png" class="slide-logo"></p>
-<div class="footer footer-default">
+<img src="images/temple.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p>Computer Fusion Laboratory</p>
 </div>
 </section></section>

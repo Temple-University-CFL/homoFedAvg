@@ -1,6 +1,6 @@
 ---
-title: "A Fully Decentralized Homomorphic "
-subtitle: Federated Learning Framework
+title: "MASS 2023 "
+subtitle: A Fully Decentralized Homomorphic Federated Learning Framework
 author:
     - name: Anway Bose
       orcid: 0000-0002-7145-6203
@@ -30,6 +30,7 @@ revealjs-plugins:
 filters: 
   - reveal-auto-agenda
 auto-agenda:
+    heading: "Contents:"
 
 ---
 
@@ -43,6 +44,28 @@ auto-agenda:
 
 :::
 
+::: columns
+
+::: {.column width="33%"}
+![LLM](./images/LLM.jpg){width=150% fig-align="left"}
+:::
+
+::: {.column width="0.5%"}
+:::
+
+::: {.column width="33%"}
+![Metaverse](./images/metaverse.jpeg){width=150% fig-align="center"}
+:::
+
+::: {.column width="0.5%"}
+:::
+
+::: {.column width="33%"}
+![IOT](./images/iot.jpg){width=150% fig-align="right"}
+:::
+
+:::
+
 ## Motivation
 
 ::: {.callout-note title="Motivation"}
@@ -51,6 +74,8 @@ auto-agenda:
 
 -   The sharing of data between two organizations is often hindered by high costs, regulations, and security concerns
 :::
+
+![](./images/iot-security.png){width=200% fig-align="center"}
 
 ## Motivation
 
@@ -64,12 +89,28 @@ auto-agenda:
 
 :::
 
+![NVIDIA CLARA Federated Training](./images/clara_fed.png){width=200% fig-align="left"}
 
-# Federated Learning
 
-## IBM WSL Federated Learning
+# Background
+## Federated Learning
 
-![](./images/IBM_homo_fed.jpeg){fig-align="center"}
+### IBM WSL Federated Learning
+
+::: columns
+
+::: {.column width="49%"}
+![Secured Federated Learning](./images/IBM_homo_fed.jpeg){width=200% fig-align="left"}
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="49%"}
+![Ring-Architecture](./images/ring_fed.png){width=200% fig-align="left"}
+:::
+:::
+
 
 
 ## Classification of Federated Learning
@@ -82,9 +123,8 @@ auto-agenda:
 $$\boldsymbol w_{update} = \frac{1}{n}\sum_{i=1}^{n} \boldsymbol w^{(i)}$$
 
 
-# Homomorphic Encryption
-
 ## Homomorphic Encryption
+
 ::: {.callout-note title="Homomorphic Encryption"}
 
 -   In mathematical terms, an encryption algorithm $\boldsymbol{En}$ is considered homomorphic with respect to a specific operation $\star$, if $\boldsymbol{En}$ satisfies the criteria
@@ -229,11 +269,8 @@ $$LOG_b (b^{\boldsymbol A}) = \boldsymbol A$$
 
 ## homoFedAvg Technique
 
-::: {.callout-note title="Model Encryption"}
+![](./images/client.png){fig-align="center"}
 
-$$\boldsymbol{En}(\boldsymbol w^{(i)},\ gk) = gk^{\boldsymbol w^{(i)}}$$
-
-:::
 
 ## homoFedAvg Technique
 
@@ -242,43 +279,108 @@ $$\boldsymbol{En}(\boldsymbol w^{(i)},\ gk) = gk^{\boldsymbol w^{(i)}}$$
 $$\boldsymbol{En}(\boldsymbol w^{(i)},\ gk) = gk^{\boldsymbol w^{(i)}}$$
 
 :::
+
+![](./images/encrypt.png){fig-align="center"}
+
+
+## homoFedAvg Technique
 
 ::: {.callout-note title="Server Update"}
 
 $$\begin{split}
-        update &= \prod_i^n (gk^{\boldsymbol w^{(i)}})^{\frac{1}{n}} \\
-        &= \prod_i^n (gk^{\frac{\boldsymbol w^{(i)}}{n}}) \\
-        &= gk^{\frac{1}{n}\sum_{i=1}^n \boldsymbol w^{(i)}} \\
-        &= \boldsymbol{En}(\boldsymbol w_{update}, gk),
+        update &= \prod_i^n (gk^{\boldsymbol w^{(i)}})^{\frac{1}{n}}
+        = \prod_i^n (gk^{\frac{\boldsymbol w^{(i)}}{n}})
+        = gk^{\frac{1}{n}\sum_{i=1}^n \boldsymbol w^{(i)}} 
+        = \boldsymbol{En}(\boldsymbol w_{update}, gk),
     \end{split}$$
 
 :::
 
+![](./images/server_update.png){fig-align="center"}
+
 
 ## homoFedAvg Technique
-
-::: {.callout-note title="Model Encryption"}
-
-$$\boldsymbol{En}(\boldsymbol w^{(i)},\ gk) = gk^{\boldsymbol w^{(i)}}$$
-
-:::
-
-::: {.callout-note title="Server Update"}
-
-$$ update = \boldsymbol{En}(\boldsymbol w_{update}, gk) $$
-:::
 
 ::: {.callout-note title="Client Decryption"}
 $$\begin{split}
-        \boldsymbol{De}(update) &= LOG_{gk} (\boldsymbol{En}(\boldsymbol w_{update}, gk) )\\
-        &= LOG_{gk} (gk^{\frac{1}{n}\sum_i^n \boldsymbol w^{(i)}}) \\
-        &= \frac{1}{n}\sum_i^n \boldsymbol w^{(i)} = \boldsymbol w_{update},     
+        \boldsymbol{De}(update) &= LOG_{gk} (\boldsymbol{En}(\boldsymbol w_{update}, gk) )
+        &= LOG_{gk} (gk^{\frac{1}{n}\sum_i^n \boldsymbol w^{(i)}}) 
+        &= \frac{1}{n}\sum_i^n \boldsymbol w^{(i)} = \boldsymbol w_{update}     
     \end{split}$$
 :::
+
+![](./images/decrypt.png){fig-align="center"}
+
 
 ## homoFedAvg Technique
 
 ![](./images/hom_fedavg.png){fig-align="center"}
+
+
+
+
+# Results and Ananlysis
+
+## Convergence Ananlysis
+
+::: {.callout-note title="Convergence Ananlysis"}
+
+  - We assume that the loss function $f_m$ is $\mu$-strongly convex for $\mu \geq 0$ and L-smooth
+  - The convergence rate to achieve $\epsilon$-accuracy is
+$$\mathcal{O} \left( \frac{L^2 \lVert x_0 -x_* \rVert^2}{n \epsilon^2} - \frac{\sigma^4}{L^2 n \epsilon^2} \right) $$
+
+:::
+
+
+
+## Experimental Results
+
+::: {.callout-note title="Microgrid Table"}
+| **dataset** | **ML Algorithm** | **homoFedAvg training time** | **Training Loss** | **Central training time**  | **Central Training Loss** |
+|:----:|:----:|:----:|:----:|:----:|:----:|
+|   **MNIST**   |   logistic regression   |   $5 \times 10^3$ sec   |   $0.39$   | $6 \times 10^3$ sec | $0.35$ |
+|   **CIFAR 10**  |   CNN   |   $2 \times 10^2$ sec    |   $0.22$   | $3 \times 10^2$ sec | $0.23$ |
+|   **CIFAR 10**   |   AlexNet   |   $3 \times 10^3$ sec   |   $0.12$   | $4 \times 10^3$ sec | $0.14$ |
+:::
+
+
+# Conclusion
+
+## Conclusion & Future Work {.smaller}
+
+<br>
+
+::: {.callout-note title="Conclusion"}
+-   presented a verifiable homomorphic federated learning scheme *homoFedAvg*, without any loss of convergence performance compared to *FedAvg* technique.
+
+-   Using TGDH as the group key generator, our system is robust to the joining and leaving of clients during the training process. On each round of updates, TGDH recalculates the group key thus preventing clients left from accessing the new server updates
+
+-   we provide a proof for verification, where each client verifies if the server update has been spoofed and accordingly accepts the update, making the process more robust to attacks during training
+
+-   in a bigger network, at each round randomly different nodes can be used as servers to decrease the vulnerability of the model further
+:::
+
+::: {.callout-note title="Future Work"}
+-   By incorporating slight modifications to the feature vector, this approach can be extended to facilitate Homomorphic Vertical Federated Learning and Homomorphic Federated Transfer Learning
+:::
+
+
+
+## THANK YOU
+
+::: columns
+
+::: {.column width="49%"}
+![Anway Bose (anway.bose@temple.edu)](./images/abose1.jpg){width=150% fig-align="left"}
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="49%"}
+![Dr. Li Bai (li.bai@temple.edu)](./images/li_bai.png){width=150% fig-align="right"}
+:::
+:::
 
 
 ## Verifiable Proof
@@ -401,66 +503,3 @@ $\phi = \sum_i^n \gamma_i \gamma + \nu_i \nu \ \text{and} \ \Phi = e(g,h)^\phi.$
         \label{eq:phi}
 \end{equation}
 
-
-# Convergence Ananlysis
-
-## Convergence Ananlysis
-
-::: {.callout-note title="Convergence Ananlysis"}
-
-  - We assume that the loss function $f_m$ is $\mu$-strongly convex for $\mu \geq 0$ and L-smooth
-  - The convergence rate to achieve $\epsilon$-accuracy is
-$$\mathcal{O} \left( \frac{L^2 \lVert x_0 -x_* \rVert^2}{n \epsilon^2} - \frac{\sigma^4}{L^2 n \epsilon^2} \right) $$
-
-:::
-
-# Results
-
-## Experimental Results
-
-::: {.callout-note title="Microgrid Table"}
-| **dataset** | **ML Algorithm** | **homoFedAvg training time** | **Training Loss** | **Central training time**  | **Central Training Loss** |
-|:----:|:----:|:----:|:----:|:----:|:----:|
-|   **MNIST**   |   logistic regression   |   $5 \times 10^3$ sec   |   $0.39$   | $6 \times 10^3$ sec | $0.35$ |
-|   **CIFAR 10**  |   CNN   |   $2 \times 10^2$ sec    |   $0.22$   | $3 \times 10^2$ sec | $0.23$ |
-|   **CIFAR 10**   |   AlexNet   |   $3 \times 10^3$ sec   |   $0.12$   | $4 \times 10^3$ sec | $0.14$ |
-:::
-
-
-# Conclusion
-
-## Conclusion & Future Work {.smaller}
-
-<br>
-
-::: {.callout-note title="Conclusion"}
--   presented a verifiable homomorphic federated learning scheme *homoFedAvg*, without any loss of convergence performance compared to *FedAvg* technique.
-
--   Using TGDH as the group key generator, our system is robust to the joining and leaving of clients during the training process. On each round of updates, TGDH recalculates the group key thus preventing clients left from accessing the new server updates
-
--   we provide a proof for verification, where each client verifies if the server update has been spoofed and accordingly accepts the update, making the process more robust to attacks during training
-
--   in a bigger network, at each round randomly different nodes can be used as servers to decrease the vulnerability of the model further
-:::
-
-::: {.callout-note title="Future Work"}
--   By incorporating slight modifications to the feature vector, this approach can be extended to facilitate Homomorphic Vertical Federated Learning and Homomorphic Federated Transfer Learning
-:::
-
-
-
-## THANK YOU
-
-::: columns
-
-::: {.column width="49%"}
-![Anway Bose (anway.bose@temple.edu)](./images/abose1.jpg){width=150% fig-align="center"}
-:::
-
-::: {.column width="2%"}
-:::
-
-::: {.column width="49%"}
-![Dr. Li Bai (li.bai@temple.edu)](./images/li_bai.png){width=150% fig-align="right"}
-:::
-:::
