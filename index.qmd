@@ -1,5 +1,5 @@
 ---
-title: "MASS 2023 "
+title: "IEEE MASS 2023 "
 subtitle: A Fully Decentralized Homomorphic Federated Learning Framework
 author:
     - name: Anway Bose
