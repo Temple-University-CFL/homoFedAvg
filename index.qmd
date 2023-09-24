@@ -157,7 +157,7 @@ $$\begin{split}
 
 ## Problem Statement
 
-::: {.callout-note title="Homomorphic Encryption"}
+::: {.callout-note title="Homomorphic Encryption and model update"}
 
 -   our goal to come up with a homomorphic operation $\boldsymbol \phi$ on each encrypted local models, such that the server operates on encrypted local models $\boldsymbol{En}(\boldsymbol w^{(i)})$ as described in
 
