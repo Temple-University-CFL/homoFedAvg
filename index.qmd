@@ -199,23 +199,23 @@ $$I^{\boldsymbol A} =
 ## Definitions and Properties
 
 ::: {.callout-note title="Definition 1:"}
-We define the following indices function for any scalar $I$ and any vector $\boldsymbol A = [a_1, a_2, ...,a_n]^T$ in
+We define the following indices function for any scalar $i$ and any vector $\boldsymbol A = [a_1, a_2, ...,a_n]^T$ in
 
-$$I^{\boldsymbol A} = 
+$$i^{\boldsymbol A} = 
         \begin{bmatrix}
-        I^{a_1}& 0 & \cdot & 0 \\
-        0 & I^{a_2} & \cdot & 0 \\
+        i^{a_1}& 0 & \cdot & 0 \\
+        0 & i^{a_2} & \cdot & 0 \\
         0 & \cdot & \cdot & 0 \\
-        0 & \cdot & 0 & I^{a_n}
+        0 & \cdot & 0 & i^{a_n}
         \end{bmatrix}$$
 
 :::
 
 ::: {.callout-note title="Propoerty 1:"}
 
-If $I^{\boldsymbol A}$ and $I^{\boldsymbol B}$ is defined using Definition 1, we can show that
+If $i^{\boldsymbol A}$ and $i^{\boldsymbol B}$ is defined using Definition 1, we can show that
 
-$$I^{\boldsymbol A} \cdot I^{\boldsymbol B} = I^{\boldsymbol A + \boldsymbol B}$$
+$$i^{\boldsymbol A} \cdot i^{\boldsymbol B} = i^{\boldsymbol A + \boldsymbol B}$$
 :::
 
 
@@ -290,7 +290,7 @@ $$\boldsymbol{En}(\boldsymbol w^{(i)},\ gk) = gk^{\boldsymbol w^{(i)}}$$
 $$\begin{split}
         update &= \prod_i^n (gk^{\boldsymbol w^{(i)}})^{\frac{1}{n}}
         = \prod_i^n (gk^{\frac{\boldsymbol w^{(i)}}{n}})
-        = gk^{\frac{1}{n}\sum_{i=1}^n \boldsymbol w^{(i)}} 
+        = gk^{(\frac{1}{n}\sum_{i=1}^n \boldsymbol w^{(i)})}
         = \boldsymbol{En}(\boldsymbol w_{update}, gk),
     \end{split}$$
 
