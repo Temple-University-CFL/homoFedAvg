@@ -184,14 +184,14 @@ $$\boldsymbol{De}(update) = \boldsymbol w_{update} = \frac{1}{n}\sum_{i=1}^{n} \
 ## Definitions and Properties
 
 ::: {.callout-note title="Definition 1:"}
-We define the following indices function for any scalar $I$ and any vector $\boldsymbol A = [a_1, a_2, ...,a_n]^T$ in
+We define the following indices function for any scalar $i$ and any vector $\boldsymbol A = [a_1, a_2, ...,a_n]^T$ in
 
-$$I^{\boldsymbol A} = 
+$$i^{\boldsymbol A} = 
         \begin{bmatrix}
-        I^{a_1}& 0 & \cdot & 0 \\
-        0 & I^{a_2} & \cdot & 0 \\
+        i^{a_1}& 0 & \cdot & 0 \\
+        0 & i^{a_2} & \cdot & 0 \\
         0 & \cdot & \cdot & 0 \\
-        0 & \cdot & 0 & I^{a_n}
+        0 & \cdot & 0 & i^{a_n}
         \end{bmatrix}$$
 
 :::
